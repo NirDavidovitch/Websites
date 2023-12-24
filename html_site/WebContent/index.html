@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/general.css">
+	<title>Nir's IoTs</title>
+</head>
+
+<body>
+	<div class="background-container">
+		<div class="left-background">
+			<img src="images/arrow.png" class="btn-back" onclick="loadInit()">
+		</div>
+		<div class="right-background">
+			<div id="dynamicContainer" class="container">
+				<img src="images/logo.png" alt="MyLogo" class="logo">
+				<h1>Welcome to My Website</h1>
+				<p>Explore the limitless infrastructure capabilities for IoTs</p>
+
+				<div class="buttons">
+					<button class="btn" onclick="loadCompany()">
+						<div class="btn-content">
+							<div class="btn-icon">Register Company</div>
+							<div class="btn-desc">Register Your Company to our services</div>
+						</div>
+					</button>
+
+					<button class="btn" onclick="loadProduct()">
+						<div class="btn-content">
+							<div class="btn-icon">Register Product</div>
+							<div class="btn-desc">Already registered? Add Your Products Here!</div>
+						</div>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+    function loadCompany() {
+        // Change the content of the container to Form 1
+        document.getElementById('dynamicContainer').innerHTML = `
+            <form id="form1" action="companyRegistration" class="form-reg" method="post">
+					<h2>Register Your Company:</h2>
+			        <label for="companyName" class="label-reg">Company Name:</label>
+			        <input type="text" id="companyName" name="companyName" class="field-reg" required>
+			
+			        <label for="city" class="label-reg">City:</label>
+			        <select id="city" name="city" class="field-reg" required>
+			            <option value="" disabled selected>Select City</option>
+			            <option value="tel-aviv">Tel Aviv</option>
+			            <option value="jerusalem">Jerusalem</option>
+			            <option value="haifa">Haifa</option>
+			        </select>
+			
+			        <label for="contactPhone" class="label-reg">Contact Phone:</label>
+			        <input type="tel" id="contactPhone" name="contactPhone" pattern="[0-9]{10}" placeholder="Ex. 051-2345678" class="field-reg" required>
+			
+			        <label for="creditCard" class="label-reg">Credit Card Number:</label>
+			        <input type="text" id="creditCard" name="creditCard" pattern="[0-9]{16}" class="field-reg" required>
+			
+			        <label for="expiryDate" class="label-reg">Expiry Date:</label>
+			        <input type="text" id="expiryDate" name="expiryDate" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" placeholder="Ex. MM/YY" class="field-reg" required>
+			
+			        <label for="cvv" class="label-reg">CVV:</label>
+			        <input type="text" id="cvv" name="cvv" pattern="[0-9]{3}" class="field-reg" maxlength="3" required>
+			
+					<button type="submit" class="btn-submit">Submit</button>
+			    </form>
+        `;
+    }
+
+    function loadProduct() {
+        // Change the content of the container to Form 2
+        document.getElementById('dynamicContainer').innerHTML = `
+            <form action="ProductRegistration" class="form-reg" method="post">
+					<h2>Register Your Products:</h2>
+			        <label for="registeredCompany" class="label-reg">Registered Company:</label>
+			        <select id="registeredCompany" name="registeredCompany" class="field-reg" required>
+			            <option value="" disabled selected>Select Company</option>
+			            <option value="company1">Company 1</option>
+			            <option value="company2">Company 2</option>
+			        </select>
+			
+			        <label for="productName" class="label-reg">Product Name:</label>
+			        <input type="text" id="productName" name="productName" class="field-reg" required>
+			
+			        <label for="productID" class="label-reg">Product ID:</label>
+			        <input type="text" id="productID" name="productID" class="field-reg" required>
+			
+			        <label for="modelYear" class="label-reg">Model Year:</label>
+			        <input type="text" id="modelYear" name="modelYear" pattern="[0-9]{4}" placeholder="YYYY" class="field-reg" required>
+			
+			        <button type="submit" class="btn-submit">Submit</button>
+			    </form>
+        `;
+    }
+    
+    function loadInit() {
+        // Change the content of the container to Form 2
+        document.getElementById('dynamicContainer').innerHTML = `
+            <img src="images/logo.png" alt="MyLogo" class="logo">
+				<h1>Welcome to My Website</h1>
+				<p>Explore the limitless infrastructure capabilities for IoTs</p>
+
+				<div class="buttons">
+					<button class="btn" onclick="loadCompany()">
+						<div class="btn-content">
+							<div class="btn-icon">Register Company</div>
+							<div class="btn-desc">Register Your Company to our services</div>
+						</div>
+					</button>
+
+					<button class="btn" onclick="loadProduct()">
+						<div class="btn-content">
+							<div class="btn-icon">Register Product</div>
+							<div class="btn-desc">Already registered? Add Your Products Here!</div>
+						</div>
+					</button>
+				</div>
+        `;
+    }
+
+    function submitForm1() {
+        // Handle form submission logic for Form 1
+        alert('Form 1 submitted!');
+    }
+
+    function submitForm2() {
+        // Handle form submission logic for Form 2
+        alert('Form 2 submitted!');
+    }
+</script>
+
+</body>
+
+</html>
